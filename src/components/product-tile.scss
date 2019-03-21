@@ -1,0 +1,207 @@
+@import "../variables.scss";
+
+.product-tile {
+  display: flex;
+  width: 320px;
+  position: relative;
+  flex-direction: column;
+}
+
+.product-tile__inner {
+  position: relative;
+  border-radius: 12px;
+  border-top-left-radius: 73px;
+  padding: 0 44px;
+  width: 100%;
+  background: $white
+    url("https://uploads.codesandbox.io/uploads/user/f00582a3-138b-4bad-b95d-90b076fb838d/AQu--cat.png")
+    52% 180% no-repeat;
+  height: 480px;
+  cursor: pointer;
+}
+.product-tile__pseudo-line,
+.product-tile__attachment-item {
+  display: none;
+}
+
+.product-tile__header {
+  .product-tile__question-text {
+    display: none;
+    color: $selected-hover;
+  }
+}
+.product-tile--default {
+  .product-tile__inner {
+    border: 4px solid $default;
+  }
+  .product-tile__weight {
+    background-color: $default;
+  }
+  .product-tile__pseudo-line {
+    display: inline;
+    stroke: $default;
+  }
+  .product-tile__attachment-item--default {
+    display: block;
+    color: $white;
+    button {
+      background-color: transparent;
+      color: $default;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .product-tile__inner:hover {
+    border: 4px solid $default-hover;
+    .product-tile__weight {
+      background-color: $default-hover;
+    }
+    .product-tile__pseudo-line {
+      stroke: $default-hover;
+    }
+    .product-tile__attachment-item--default {
+      button {
+        color: $default-hover;
+      }
+    }
+  }  
+}
+
+.product-tile--ordered {
+  .product-tile__inner {
+    border: 4px solid $selected;
+  }
+  .product-tile__weight {
+    background-color: $selected;
+  }
+  .product-tile__pseudo-line {
+    display: inline;
+    stroke: $selected;
+  }
+  .product-tile__attachment-item--ordered {
+    display: block;
+    color: $white;
+  }
+
+  .product-tile__inner:hover {
+    border: 4px solid $selected-hover; 
+    .product-tile__weight {
+      background-color: $selected-hover;
+    }
+    .product-tile__pseudo-line {
+      stroke: $selected-hover;
+    }
+    .product-tile__header--apply-hover {
+      .product-tile__header-text {
+        display: none;
+      }
+      .product-tile__question-text {
+        display: block;
+      }
+    }
+  }  
+}
+
+.product-tile--disabled {
+  .product-tile__inner {
+    cursor: default;
+    background-color: $disabled-background;
+    color: $disabled;
+    border: 4px solid $disabled;
+    background-image: url("https://uploads.codesandbox.io/uploads/user/f00582a3-138b-4bad-b95d-90b076fb838d/f6nI-cat_disabled.png");
+  }
+
+  .product-tile__weight {
+    background-color: $disabled;
+  }
+  .product-tile__pseudo-line {
+    display: inline;
+    stroke: $disabled;
+  }
+  polygon {
+    fill: $disabled-background;
+  }
+  .product-tile__attachment-item--disabled {
+    display: block;
+    color: $yellow;
+  }
+  .product-tile__pseudo-corner,
+  .product-tile__attachment {
+    cursor: default;
+  }
+}
+
+.product-tile__pseudo-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.product-tile__header {
+  margin-bottom: 12px;
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 14px;
+    margin-bottom: 3px;
+  }
+}
+.product-tile__title {
+  h3 {
+    margin: 0 0 0 -3px;
+    font-size: 48px;
+    line-height: 54px;
+    font-weight: bold;
+  }
+  span {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 900;
+  }
+}
+.product-tile__description,
+.product-tile__gift,
+.product-tile__success {
+  font-size: 14px;
+  line-height: 16px;
+  span {
+    font-weight: bold;
+  }
+}
+.product-tile__weight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  bottom: 13px;
+  right: 13px;
+  border-radius: 50%;
+  color: $white;
+  font-size: 42px;
+  line-height: 44px;
+  span {
+    font-size: 18px;
+    line-height: 16px;
+  }
+}
+.product-tile__attachment {
+  min-height: 60px;
+  text-align: center;
+  font-size: 13px;
+  cursor: default;
+  p {
+    margin-top: 13px;
+  }
+}
+
+@media (max-width: $screen__xl - 1) {
+  .product-tile {
+    margin: 0 30px 30px 30px;
+  }
+}
